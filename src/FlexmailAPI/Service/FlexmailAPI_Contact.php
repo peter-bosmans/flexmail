@@ -166,11 +166,16 @@ class FlexmailAPI_Contact extends FlexmailAPI implements FlexmailAPIServiceInter
    *              "referenceId" => "my-ref-002"
    *          )
    *      )
+   *      "states" => array (                     // array (of states) optional
+   *          'active',
+   *          'unsubscribed',
+   *          'awaiting-opt-in-confirmation'
+   *      )
    * );
    *
    * @param array $parameters Associative array with optional
    *                          emailAddressTypeItems array, mailingListIds
-   *                          array or groupIds array
+   *                          array, groupIds array or states
    *
    * @return emailAddressTypeItems array
    */
@@ -198,6 +203,12 @@ class FlexmailAPI_Contact extends FlexmailAPI implements FlexmailAPIServiceInter
             array_push($groupIds, $value2);
           endforeach;
           $request[$key] = $groupIds;
+
+        elseif ($key == "states"):
+          foreach ($value as $value2):
+            array_push($states, $value2);
+          endforeach;
+          $request[$key] = $states;
         endif;
       endforeach;
     endif;
