@@ -87,21 +87,14 @@ class FlexmailAPI_Message extends FlexmailAPI implements FlexmailAPIServiceInter
   /**
    * Get all Messages
    *
-   * @param Array $parameters Associative array with archivedMessages property.
+   * @param Array $parameters Associative array.
    *
    * @return messageTypeItems array
    */
   public function getAll($parameters = NULL) {
-    $request = NULL;
-
-    if (isset($parameters) && (array_key_exists("archivedMessages", $parameters) && ($parameters["archivedMessages"]))):
-
-      $request = FlexmailAPI::parseArray($parameters);
-
-    endif;
+    $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("GetMessages", $request);
-
     return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 }
