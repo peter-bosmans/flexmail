@@ -53,6 +53,7 @@ FlexmailAPI_Account
     getUnsubscriptions
     getProfileUpdates
     getBalance
+    getCustomFields
 
 FlexmailAPI_Blaclist
     import
@@ -118,7 +119,7 @@ FlexmailAPI_Message
     delete
     getAll
 
-FlexmailAPI_Tempalte
+FlexmailAPI_Template
     create
     update
     delete
