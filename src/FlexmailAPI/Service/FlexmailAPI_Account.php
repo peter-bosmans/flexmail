@@ -145,6 +145,17 @@ class FlexmailAPI_Account extends FlexmailAPI implements FlexmailAPIServiceInter
     return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
+  /**
+   * Return all custom fields
+   *
+   * @return array of custom fields
+   */
+  public function getCustomFields() {
+    $request = NULL;
+
+    $response = $this->execute("GetCustomFields", $request);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
+  }
 }
 
 ?>
