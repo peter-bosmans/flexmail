@@ -185,6 +185,7 @@ class FlexmailAPI_Contact extends FlexmailAPI implements FlexmailAPIServiceInter
       $emailAddressTypeItems = array();
       $mailingListIds = array();
       $groupIds = array();
+      $states = array();
       foreach ($parameters as $key => $value):
         if ($key == "emailAddressTypeItems"):
           foreach ($value as $value2):
