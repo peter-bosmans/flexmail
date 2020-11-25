@@ -69,7 +69,7 @@ class FlexmailAPI implements FlexmailAPIInterface {
     endif;
 
     foreach ($arr as $key => $val):
-      if (is_array($val) AND $key != "custom" AND substr($key, -3) != "Ids"):
+      if (is_array($val) AND $key != "custom" AND $key != "sources" AND substr($key, -3) != "Ids"):
         $parent->$key = $this->parseArray($val, new \stdClass);
       else:
         $parent->$key = $val;
